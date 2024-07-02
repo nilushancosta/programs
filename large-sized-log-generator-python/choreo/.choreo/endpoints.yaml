@@ -1,0 +1,8 @@
+version: 0.1
+
+endpoints:
+- name: Large Sized Log Generator
+  port: 9090
+  type: REST
+  networkVisibility: Public
+  context: /
