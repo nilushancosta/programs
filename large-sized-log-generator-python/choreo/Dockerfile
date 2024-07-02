@@ -1,7 +1,7 @@
 FROM python:3.9-alpine
 
-RUN addgroup -S runuser -g 10001 \
-    && adduser -S appuser -G runusergroup -u 10001
+RUN addgroup -S appusergroup -g 10001 \
+    && adduser -S appuser -G appusergroup -u 10001
 
 RUN LC_ALL=C tr -dc A-Za-z0-9 </dev/urandom | head -c 20000000 > 20MB.txt
 COPY *MB.txt .
