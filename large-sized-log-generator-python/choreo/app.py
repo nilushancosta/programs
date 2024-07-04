@@ -9,7 +9,7 @@ logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
 
 content = ''
-with open('20MB.txt', 'r') as file:
+with open('9KB.txt', 'r') as file:
     for chunk in iter(lambda: file.read(4096), ''):  # Read in chunks of 4096 bytes
         content += chunk
 
