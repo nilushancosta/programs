@@ -1,0 +1,27 @@
+openapi: 3.0.0
+info:
+  title: Large Sized Log Generator
+  description: API to generate large log messages
+  version: "1.0"
+servers:
+  - url: http://localhost:9090
+paths:
+  /generate_log:
+    post:
+      summary: Generates a log message
+      description: Logs a predefined message and returns a confirmation.
+      responses:
+        '201':
+          description: Successfully logged the message
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: Logged a random string
+      requestBody:
+        required: false
+components:
+  securitySchemes: {}
