@@ -1,0 +1,31 @@
+swagger: '2.0'
+info:
+  title: Log Generator API
+  description: API for generating log entries
+  version: '1.0.0'
+host: 'localhost:8080'
+schemes:
+  - http
+basePath: '/'
+paths:
+  /:
+    get:
+      summary: Generate log entries
+      description: Generates and returns log entries.
+      responses:
+        '200':
+          description: A list of log entries
+          schema:
+            type: string
+            example: |
+              Log Entry 1
+              This is a string log
+              End of log Entry 1
+
+              Log Entry 2
+              This log has "double quotes" between 2 words and was printed using fmt.Println()
+              End of log Entry 2
+
+              Log Entry 3
+              This log has 'single quotes' between 2 words and was printed using fmt.Println()
+              End of log Entry 3
