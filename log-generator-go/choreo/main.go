@@ -5,9 +5,10 @@ import (
     "fmt"
     "net/http"
     "github.com/gorilla/mux"
+    "go.uber.org/zap"
 )
 
-func GenerateLogs(w http.ResponseWriter, r *http.Request) {
+func GenerateLogs(zaplogger *zap.Logger, w http.ResponseWriter, r *http.Request) {
     fmt.Println("Log Entry 1")
     fmt.Println("This is a string log and was printed using fmt.Println()")
     fmt.Println("End of log Entry 1\n")
@@ -44,12 +45,26 @@ func GenerateLogs(w http.ResponseWriter, r *http.Request) {
     fmt.Println("Log Entry 6")
 	fmt.Printf("%s\n", "This is a string log and was using fmt.Printf()")
     fmt.Println("End of log Entry 6\n")
+
+    fmt.Println("Log Entry 7")
+    zaplogger.Info("This is a string log and was printed using zap logger")
+    fmt.Println("End of log Entry 7\n")
+
+    fmt.Println("Log Entry 8")
+    zaplogger.Info("This log has \"double quotes\" between 2 words and was printed using zap logger")
+    fmt.Println("End of log Entry 8\n")
 }
 
 func main() {
     router := mux.NewRouter()
+    zaplogger := zap.Must(zap.NewProduction())
+    defer zaplogger.Sync()
 
-    router.HandleFunc("/", GenerateLogs).Methods("GET")
+    logWrapper := func(w http.ResponseWriter, r *http.Request) {
+        GenerateLogs(zaplogger, w, r)
+    }
+
+    router.HandleFunc("/", logWrapper).Methods("GET")
 
     fmt.Println("Server is running on port 8080")
     http.ListenAndServe(":8080", router)
