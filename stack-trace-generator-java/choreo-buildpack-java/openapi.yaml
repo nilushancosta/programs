@@ -1,0 +1,46 @@
+openapi: 3.0.0
+info:
+  title: Spring Boot Error Handling API
+  version: 1.0.0
+  description: A simple Spring Boot API to demonstrate error handling by reading a non-existent file and dividing by zero.
+servers:
+  - url: http://localhost:8080
+paths:
+  /read-non-existent-file:
+    get:
+      summary: Read a non-existent file
+      description: Attempts to read a non-existent file and returns its content.
+      responses:
+        '200':
+          description: File content successfully read
+          content:
+            application/json:
+              schema:
+                type: string
+                description: The content of the file
+        '500':
+          description: Error reading file
+          content:
+            application/json:
+              schema:
+                type: string
+                description: Error message
+  /divide-by-zero:
+    get:
+      summary: Divide by zero
+      description: Attempts to divide a number by zero and returns the result.
+      responses:
+        '200':
+          description: Division result
+          content:
+            application/json:
+              schema:
+                type: number
+                description: The result of the division
+        '500':
+          description: Division by zero error
+          content:
+            application/json:
+              schema:
+                type: string
+                description: Error message

@@ -17,7 +17,7 @@ def read_file():
         logger.error(e, exc_info=True)
         return jsonify({"error": "Error reading file"}), 500
 
-@app.route('/string_concat', methods=['GET'])
+@app.route('/divide-by-zero', methods=['GET'])
 def string_concat():
     logger.info("hello " + nonexistentvariable)
 
