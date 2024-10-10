@@ -1,0 +1,38 @@
+openapi: 3.0.0
+info:
+  title: Python Stack trace generator
+  version: 1.0.0
+  description: A simple Flask API to generate Python stack traces
+servers:
+  - url: http://localhost:9090
+paths:
+  /read_file:
+    get:
+      summary: Read a nonexistent file
+      description: Open a nonexistent file to generate an error.
+      responses:
+        '500':
+          description: Error reading file
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  error:
+                    type: string
+                    description: Error message
+  /string_concat:
+    get:
+      summary: Concatenate strings
+      description: Concatenates a string with a nonexistent variable to generate an error.
+      responses:
+        '500':
+          description: Error concatenating strings
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  error:
+                    type: string
+                    description: Error message
