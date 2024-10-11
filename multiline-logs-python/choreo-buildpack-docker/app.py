@@ -21,5 +21,10 @@ def read_file():
 def string_concat():
     logger.info("hello " + nonexistentvariable)
 
+@app.route('/log-with-newline-char', methods=['GET'])
+def newline_char():
+    print("This is a log message printed with a newline char printed with print(). Before newline character.\nAfter newline character")
+    logger.info("This is a log message with a newline char printed with a logger. Before newline character.\nAfter newline character")
+
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port='9090')

@@ -1,8 +1,8 @@
 openapi: 3.0.0
 info:
-  title: Spring Boot Error Handling API
+  title: Spring Boot multiline log generator
   version: 1.0.0
-  description: A simple Spring Boot API to demonstrate error handling by reading a non-existent file and dividing by zero.
+  description: A simple Spring Boot API to generate multiline logs (E.g. Stacktraces)
 servers:
   - url: http://localhost:8080
 paths:

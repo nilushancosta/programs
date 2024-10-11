@@ -9,9 +9,9 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>org.nilushancosta</groupId>
-	<artifactId>stack-trace-generator-java</artifactId>
+	<artifactId>multiline-logs-java</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>stack-trace-generator-java</name>
+	<name>multiline-logs-java</name>
 	<description>Generates stack traces in java</description>
 	<url/>
 	<licenses>

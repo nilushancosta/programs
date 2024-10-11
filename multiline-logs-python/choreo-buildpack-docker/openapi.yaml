@@ -1,8 +1,8 @@
 openapi: 3.0.0
 info:
-  title: Python Stack trace generator
+  title: Python multiline log generator
   version: 1.0.0
-  description: A simple Flask API to generate Python stack traces
+  description: A simple Flask API to generate multiline logs (e.g. Stack traces)
 servers:
   - url: http://localhost:9090
 paths:
