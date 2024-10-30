@@ -1,0 +1,8 @@
+[package]
+org = "nilushan"
+name = "success_failure"
+version = "0.1.0"
+distribution = "2201.7.0"
+
+[build-options]
+cloud = "k8s"
